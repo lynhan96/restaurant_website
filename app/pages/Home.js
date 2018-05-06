@@ -1,6 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import R from 'ramda'
 import ReactQueryParams from 'react-query-params'
 
 import AboutUs from 'components/content/homePage/AboutUs'
@@ -25,11 +23,4 @@ class Home extends ReactQueryParams {
   }
 }
 
-const mapStateToProps = state => ({
-  foods: state.food.items,
-  selectedFood: state.selectedFood.items
-})
-
-export default R.pipe(
-  connect(mapStateToProps)
-)(Home)
+export default Home

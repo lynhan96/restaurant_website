@@ -1,6 +1,6 @@
 import request from 'request-promise'
 import { showNotification } from './showNotification'
-import { makeRequestOptions } from '../requestHeader'
+import { makeGetRequestOptions } from '../requestHeader'
 
 export const FETCH_FOOD_CATEGORIES_BEGIN = 'FETCH_FOOD_CATEGORIES_BEGIN'
 export const FETCH_FOOD_CATEGORIES_SUCCESS = 'FETCH_FOOD_CATEGORIES_SUCCESS'
@@ -20,10 +20,10 @@ export const fetchFoodCategoriesError = error => ({
   error: error
 })
 
-export const fetchFoodCategories = params => {
+export const getCategories = params => {
   return dispatch => {
     dispatch(fetchFoodCategoriesBegin())
-    request(makeRequestOptions(params, 'foodCategories')).then(body => {
+    request(makeGetRequestOptions('?vendorId=1&limit=99999', 'foodCategories')).then(body => {
       if (body.code === 401 || body.code === 400 || body.code === 414) {
         showNotification('topRight', 'error', 'Quá trình xác thực xảy ra lỗi!')
       } else {

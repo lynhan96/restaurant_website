@@ -13,7 +13,7 @@ export const makeHeader = _ => {
     'Vid': ''
   }
 
-  const headerInfo = Store.getState().admin.data
+  const headerInfo = Store.getState().user.data
 
   if (headerInfo && headerInfo !== null) {
     headers['Uid'] = headerInfo.uid
@@ -25,10 +25,17 @@ export const makeHeader = _ => {
   return headers
 }
 
-export const makeRequestOptions = (params, url) => ({
+export const makePostRequestOptions = (params, url) => ({
   method: 'POST',
   uri: apiDomainUrl() + url,
   body: params,
+  headers: makeHeader(),
+  json: true
+})
+
+export const makeGetRequestOptions = (queries, url) => ({
+  method: 'GET',
+  uri: apiDomainUrl() + url + queries,
   headers: makeHeader(),
   json: true
 })

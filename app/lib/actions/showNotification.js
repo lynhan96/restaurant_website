@@ -44,7 +44,8 @@ export const showNotification = (position, type, message) => {
     position: toast.POSITION[notificationPosition(position)],
     autoClose: 3000,
     className: css({
-      marginTop: '50px'
+      marginTop: '50px',
+      fontSize: '18px'
     })
   }
 

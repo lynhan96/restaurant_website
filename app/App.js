@@ -4,7 +4,7 @@ import Transition from 'react-transition-group/Transition'
 
 import Header from 'components/layout/Header'
 import Footer from 'components/layout/Footer'
-import ButtonOrder from 'components/layout/ButtonOrder'
+import Cart from 'components/layout/Cart'
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import 'styles/website.less'
@@ -36,7 +36,7 @@ class App extends Component {
           <Header />
           {children}
           <Footer />
-          <ButtonOrder />
+          <Cart />
           <ToastContainer transition={ZoomInAndOut}/>
         </div>
       </MuiThemeProvider>

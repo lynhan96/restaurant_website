@@ -4,8 +4,6 @@ import {
   FETCH_FOOD_CATEGORIES_ERROR
 } from '../lib/actions/foodCategory'
 
-import { USER_SIGNED_OUT } from 'ducks/user'
-
 const initialState = {
   items: [],
   loading: false,
@@ -36,8 +34,6 @@ const reducer = (state = initialState, action) => {
         items: []
       }
 
-    case USER_SIGNED_OUT:
-      return {...initialState}
     default:
       return state
   }

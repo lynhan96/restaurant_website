@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import ForgotPasswordForm from 'components/form/ForgotPasswordForm'
 import { submitForgotPassword } from 'lib/actions/submit'
-import { changeOrderModal } from 'ducks/modal'
+import { changeModalState } from 'ducks/modal'
 
 class ForgotPasswordModal extends Component {
   constructor(props, context) {
@@ -15,7 +15,7 @@ class ForgotPasswordModal extends Component {
   }
 
   handleClose() {
-    this.props.dispatch(changeOrderModal({ orderModal: false, loginModal: false, registerModal: false, forgotPasswordModal: false }))
+    this.props.dispatch(changeModalState({ orderModal: false, loginModal: false, registerModal: false, forgotPasswordModal: false }))
   }
 
   render() {

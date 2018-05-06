@@ -42,13 +42,17 @@ export const showNotification = (position, type, message) => {
   let customOption = {}
   let toastOptions = {
     position: toast.POSITION[notificationPosition(position)],
-    autoClose: 3000
+    autoClose: 3000,
+    className: css({
+      marginTop: '50px'
+    })
   }
 
   if (type === 'success') {
     customOption = {
       className: css({
-        background: '#4caf50'
+        background: '#4caf50',
+        position: 'absolute'
       })
     }
   }

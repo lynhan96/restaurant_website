@@ -40,10 +40,10 @@ class App extends Component {
           {children}
           <Footer />
           <Cart />
-          <ToastContainer transition={ZoomInAndOut}/>
           <LoginModal />
           <RegisterModal />
           <ForgotPasswordModal />
+          <ToastContainer transition={ZoomInAndOut}/>
         </div>
       </MuiThemeProvider>
     )

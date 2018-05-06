@@ -2,24 +2,33 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 
-import { changeOrderModal } from 'ducks/modal'
+import { changeModalState } from 'ducks/modal'
+import { userHasSignedOut } from 'ducks/user'
 
 class Header extends Component {
   constructor(props, context) {
     super(props, context)
 
     this.showLoginModal = this.showLoginModal.bind(this)
+    this.showRegisterModal = this.showRegisterModal.bind(this)
+    this.logout = this.logout.bind(this)
+  }
+
+  logout() {
+    this.props.dispatch(userHasSignedOut())
   }
 
   showLoginModal() {
-    this.props.dispatch(changeOrderModal({ orderModal: false, loginModal: true, registerModal: false, forgotPasswordModal: false }))
+    this.props.dispatch(changeModalState({ orderModal: false, loginModal: true, registerModal: false, forgotPasswordModal: false }))
   }
 
   showRegisterModal() {
-    this.props.dispatch(changeOrderModal({ orderModal: false, loginModal: false, registerModal: true, forgotPasswordModal: false }))
+    this.props.dispatch(changeModalState({ orderModal: false, loginModal: false, registerModal: true, forgotPasswordModal: false }))
   }
 
   render() {
+    const { signedIn } = this.props
+
     return (
       <div className='js-sticky'>
         <div className='fh5co-main-nav'>
@@ -36,8 +45,10 @@ class Header extends Component {
             <div className='fh5co-menu-2'>
               <a href='#' data-nav-section='events'>Sự kiện</a>
               <a href='#' data-nav-section='reservation'>Đặt bàn</a>
-              <Link to='#' onClick={e => { e.preventDefault(); this.showLoginModal() }}>Đăng nhập</Link>
-              <Link to='#' onClick={e => { e.preventDefault(); this.showRegisterModal() }}>Đăng kí</Link>
+              { !signedIn ? <Link to='#' onClick={e => { e.preventDefault(); this.showLoginModal() }}>Đăng nhập</Link> : ''}
+              { !signedIn ? <Link to='#' onClick={e => { e.preventDefault(); this.showRegisterModal() }}>Đăng kí</Link> : ''}
+              { signedIn ? <Link to='#'>Trang cá nhân</Link> : ''}
+              { signedIn ? <Link to='#' onClick={e => { e.preventDefault(); this.logout() }}>Thoát</Link> : ''}
             </div>
           </div>
         </div>

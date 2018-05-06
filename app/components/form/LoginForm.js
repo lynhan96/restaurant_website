@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 
 import InputText from 'components/form/element/InputText'
 import SubmitButton from 'components/form/element/SubmitButton'
-import { changeOrderModal } from 'ducks/modal'
+import { changeModalState } from 'ducks/modal'
 
 // This form is pure so it is easy to test
 // Page/Login will decorate it with the necessary props
@@ -16,7 +16,7 @@ class LoginForm extends Component {
   }
 
   showForgotPasswordModal() {
-    this.props.dispatch(changeOrderModal({ orderModal: false, loginModal: false, registerModal: false, forgotPasswordModal: true }))
+    this.props.dispatch(changeModalState({ orderModal: false, loginModal: false, registerModal: false, forgotPasswordModal: true }))
   }
 
   render() {

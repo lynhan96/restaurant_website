@@ -4,7 +4,7 @@ import { reduxForm } from 'redux-form'
 import LoginForm from 'components/form/LoginForm'
 import { submitLogin } from 'lib/actions/submit'
 import { connect } from 'react-redux'
-import { changeOrderModal } from 'ducks/modal'
+import { changeModalState } from 'ducks/modal'
 
 class LoginModal extends Component {
   constructor(props, context) {
@@ -14,7 +14,7 @@ class LoginModal extends Component {
   }
 
   handleClose() {
-    this.props.dispatch(changeOrderModal({ orderModal: false, loginModal: false, registerModal: false, forgotPasswordModal: false }))
+    this.props.dispatch(changeModalState({ orderModal: false, loginModal: false, registerModal: false, forgotPasswordModal: false }))
   }
 
   render() {

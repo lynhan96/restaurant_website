@@ -87,18 +87,14 @@ class Menu extends ReactQueryParams {
                             </span>
                             </div>
                           </a>
-                          <h2 className='white'>{priceToString(food.currentPrice)}</h2>
+                          <h3 className='food-name'>{food.name}</h3>
+                          <h2 style={{ color: 'white' }}>{priceToString(food.currentPrice)}</h2>
                         </li>
                       )
                     })}
                   </ul>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className='row'>
-            <div className='col-md-4 col-md-offset-4 text-center to-animate-2'>
-              <p><a href='#' className='btn btn-primary btn-outline'>More Food Menu</a></p>
             </div>
           </div>
         </div>

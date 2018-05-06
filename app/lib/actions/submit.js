@@ -5,42 +5,81 @@ import * as firebase from 'firebase'
 import moment from 'moment'
 
 import { updateSelectedFood } from 'ducks/selectedFood'
-import { makeRequestOptions } from '../requestHeader'
+import { makePostRequestOptions } from '../requestHeader'
 import { showNotification } from './showNotification'
 import Navigator from 'lib/Navigator'
 import { getSelectedState, getFoodState, getAdminData, getTableState, getOrderingState } from 'lib/Constant'
 import { fetchOrderings } from 'lib/actions/ordering'
-import { changeOrderModal } from 'ducks/modal'
+import { userHasSignedIn } from 'ducks/user'
+import { changeModalState } from 'ducks/modal'
 
 // Redux-form requires a promise for async submission
 // so we return a promise
 export const submitLogin =
   (values, dispatch, props) => {
     const { email, password } = values
+    let user = null
+    const url = 'login'
+    const params = { email: email, password: password, vendorId: 1 }
 
-    const url = 'waiterLogin'
-    const params = { email: email, password: password }
-
-    return request(makeRequestOptions(params, url)).then(body => {
+    return request(makePostRequestOptions(params, url)).then(body => {
       if (body.code === 0) {
+        dispatch(changeModalState({ orderModal: false, loginModal: false, registerModal: false, forgotPasswordModal: false }))
+        user = body.data
+        dispatch(userHasSignedIn(user))
       } else if (body.code === 416) {
-        showNotification('topCenter', 'error', 'Mật khẩu không hợp lệ!')
+        showNotification('topRight', 'error', 'Mật khẩu không hợp lệ!')
       } else if (body.code === 414) {
-        showNotification('topCenter', 'error', 'Tài khoản không tồn tại!')
-      } else if (body.code === 419) {
-        showNotification('topCenter', 'error', 'Tài khoản không được cấp quyền để truy cập vào trang này!')
+        showNotification('topRight', 'error', 'Tài khoản không tồn tại!')
       } else {
-        showNotification('topCenter', 'error', 'Lỗi hệ thống')
+        showNotification('topRight', 'error', 'Lỗi hệ thống')
       }
 
-      return Promise.resolve()
+      return null
     })
     .catch(function (err) {
       if (err.message) {
-        showNotification('topCenter', 'error', err.message)
+        showNotification('topRight', 'error', err.message)
         throw new SubmissionError({ _error: err.message })
       } else {
-        showNotification('topCenter', 'error', JSON.stringify(err))
+        showNotification('topRight', 'error', JSON.stringify(err))
+        throw new SubmissionError({ _error: JSON.stringify(err) })
+      }
+    })
+  }
+
+export const submitRegister =
+  (values, dispatch, props) => {
+    const { email, password, confirmPassword, phoneNumber, name, gender, birthday } = values
+
+    if (password !== confirmPassword) {
+      return showNotification('topRight', 'error', 'Vui lòng kiểm tra lại mật khẩu!')
+    }
+
+    let user = null
+    const url = 'register'
+    const params = { email: email, password: password, birthday: birthday, phoneNumber: phoneNumber, name: name, gender: gender, vendorId: 1 }
+
+    return request(makePostRequestOptions(params, url)).then(body => {
+      if (body.code === 0) {
+        dispatch(changeModalState({ orderModal: false, loginModal: false, registerModal: false, forgotPasswordModal: false }))
+        user = body.data
+        dispatch(userHasSignedIn(user))
+        showNotification('topRight', 'success', 'Tạo tài khoản thành công!')
+      } else if (body.code === 418) {
+        showNotification('topRight', 'error', 'Email đã tồn tại. Vui lòng nhập email khác!')
+      } else {
+        showNotification('topRight', 'error', 'Lỗi hệ thống')
+      }
+
+      return null
+    })
+    .catch(function (err) {
+      if (err.message) {
+        showNotification('topRight', 'error', err.message)
+        throw new SubmissionError({ _error: err.message })
+      } else {
+        showNotification('topRight', 'error', JSON.stringify(err))
         throw new SubmissionError({ _error: JSON.stringify(err) })
       }
     })
@@ -53,7 +92,7 @@ export const submitForgotPassword =
     const url = 'forgotPassword'
     const params = { email: email }
 
-    return request(makeRequestOptions(params, url)).then(body => {
+    return request(makePostRequestOptions(params, url)).then(body => {
       if (body.code === 0) {
         showNotification('topCenter', 'success', 'Vui lòng kiểm tra email để nhận mật khẩu mới!')
         Navigator.push('login')
@@ -190,7 +229,7 @@ export const submitOrder =
 
     dispatch(updateSelectedFood({}))
     dispatch(fetchOrderings())
-    dispatch(changeOrderModal(false))
+    dispatch(changeModalState(false))
 
     showNotification('topCenter', 'success', message)
 

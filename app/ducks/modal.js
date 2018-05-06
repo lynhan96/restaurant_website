@@ -2,7 +2,7 @@ import { USER_SIGNED_OUT } from 'ducks/user'
 
 export const CHANGE_MODAL_STATUS = 'CHANGE_MODAL_STATUS'
 
-export const changeOrderModal = modal => dispatch => {
+export const changeModalState = modal => dispatch => {
   dispatch({
     type: CHANGE_MODAL_STATUS,
     orderModal: modal.orderModal,

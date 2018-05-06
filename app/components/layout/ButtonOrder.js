@@ -4,7 +4,7 @@ import { reduxForm } from 'redux-form'
 import OrderForm from 'components/form/OrderForm'
 import { submitOrder } from 'lib/actions/submit'
 import { connect } from 'react-redux'
-import { changeOrderModal } from 'ducks/modal'
+import { changeModalState } from 'ducks/modal'
 
 class ButtonOrder extends Component {
   constructor(props, context) {
@@ -15,11 +15,11 @@ class ButtonOrder extends Component {
   }
 
   handleClose() {
-    this.props.dispatch(changeOrderModal(false))
+    this.props.dispatch(changeModalState(false))
   }
 
   handleShow() {
-    this.props.dispatch(changeOrderModal(true))
+    this.props.dispatch(changeModalState(true))
   }
 
   render() {

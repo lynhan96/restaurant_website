@@ -1,9 +1,8 @@
 import { confirmAlert } from 'react-confirm-alert'
 import 'react-confirm-alert/src/react-confirm-alert.css'
 
-import Navigator from 'lib/Navigator'
-import { fetchFoodCategories } from 'lib/actions/foodCategory'
-import { fetchFoods } from 'lib/actions/food'
+import { getCategories } from 'lib/actions/foodCategory'
+import { getFoods } from 'lib/actions/food'
 
 const USER_SIGNED_IN = 'USER/USER_SIGNED_IN'
 const UPDATE_ACTIVE_LINK = 'USER/UPDATE_ACTIVE_LINK'
@@ -33,13 +32,12 @@ export const userHasSignedOutNoRedirect = () => (dispatch) => {
 
 export const userHasSignedOut = () => (dispatch) => {
   dispatch({ type: USER_SIGNED_OUT })
-  Navigator.push('login')
 }
 
 export const userHasSignedIn = (user) => (dispatch) => {
   dispatch({ type: USER_SIGNED_IN, data: user })
-  dispatch(fetchFoods())
-  dispatch(fetchFoodCategories())
+  dispatch(getFoods())
+  dispatch(getCategories())
 }
 
 export const updateActiveLink = (link) => (dispatch) => {

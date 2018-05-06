@@ -5,8 +5,6 @@ import {
   UPDATE_FILTER
 } from 'lib/actions/food'
 
-import { USER_SIGNED_OUT } from 'ducks/user'
-
 const initialState = {
   items: [],
   filterByCategory: 0,
@@ -44,8 +42,6 @@ const reducer = (state = initialState, action) => {
         items: []
       }
 
-    case USER_SIGNED_OUT:
-      return {...initialState}
     default:
       return state
   }

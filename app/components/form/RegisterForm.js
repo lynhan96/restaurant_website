@@ -6,7 +6,7 @@ import InputText from 'components/form/element/InputText'
 import InputDateTime from 'components/form/element/InputDateTime'
 import SelectField from 'components/form/element/SelectField'
 import SubmitButton from 'components/form/element/SubmitButton'
-import { changeOrderModal } from 'ducks/modal'
+import { changeModalState } from 'ducks/modal'
 
 // This form is pure so it is easy to test
 // Page/Login will decorate it with the necessary props
@@ -18,7 +18,7 @@ class RegisterForm extends Component {
   }
 
   showLoginModal() {
-    this.props.dispatch(changeOrderModal({ orderModal: false, loginModal: true, registerModal: false, forgotPasswordModal: false }))
+    this.props.dispatch(changeModalState({ orderModal: false, loginModal: true, registerModal: false, forgotPasswordModal: false }))
   }
 
   render() {
@@ -39,6 +39,13 @@ class RegisterForm extends Component {
           component={InputText}
           label='Tên'
           type='text'
+          required={true}
+        />
+        <Field
+          name='phoneNumber'
+          component={InputText}
+          label='Số điện thoại'
+          type='number'
           required={true}
         />
         <Field
@@ -65,7 +72,7 @@ class RegisterForm extends Component {
           required={true}
         />
         <Field
-          name='confirmPasword'
+          name='confirmPassword'
           component={InputText}
           label='Nhập lại mật khẩu'
           type='password'

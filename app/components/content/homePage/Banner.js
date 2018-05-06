@@ -10,8 +10,7 @@ class Banner extends Component {
           <div className='fh5co-text'>
             <div className='container'>
               <div className='row'>
-                <h1 className='to-animate'>foodee</h1>
-                <h2 className='to-animate'>Lovely Designed <span>by</span> <a href='http://freehtml5.co/' target='_blank'>freehtml5.co</a></h2>
+                <h1 className='to-animate'>Cookery</h1>
               </div>
             </div>
           </div>

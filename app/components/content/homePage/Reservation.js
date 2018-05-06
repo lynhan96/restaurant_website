@@ -46,7 +46,7 @@ class Reservation extends Component {
               </div>
               <div className='form-group '>
                 <label htmlFor='date' className='sr-only'>Date</label>
-                <input id='date' className='form-control' placeholder='Date &amp; Time' type='text'/>
+                <input id='date' className='form-control date-time' placeholder='Date &amp; Time' type='text'/>
               </div>
               <div className='form-group '>
                 <label htmlFor='message' className='sr-only'>Message</label>

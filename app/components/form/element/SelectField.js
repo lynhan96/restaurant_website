@@ -24,7 +24,7 @@ class SelectField extends React.Component {
 
     return (
       <div className='form-group label-floating' style={{ marginTop: '0' }}>
-        {label && <label>{label}</label>}
+        {label && <label className='control-label'>{label}</label>}
         <select
           className='form-control'
           onChange={this.handleChange}

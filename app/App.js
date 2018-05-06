@@ -5,6 +5,8 @@ import Transition from 'react-transition-group/Transition'
 import Header from 'components/layout/Header'
 import Footer from 'components/layout/Footer'
 import Cart from 'components/layout/Cart'
+import LoginModal from 'components/modal/LoginModal'
+import RegisterModal from 'components/modal/RegisterModal'
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import 'styles/website.less'
@@ -38,6 +40,8 @@ class App extends Component {
           <Footer />
           <Cart />
           <ToastContainer transition={ZoomInAndOut}/>
+          <LoginModal />
+          <RegisterModal />
         </div>
       </MuiThemeProvider>
     )

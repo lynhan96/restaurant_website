@@ -21,18 +21,18 @@ const LoginForm = (props) => {
       <Field
         name='password'
         component={InputText}
-        label='Password'
+        label='Mật khẩu'
         type='password'
         required={true}
       />
-      <div className='form-group label-floating' style={{textAlign: 'center'}}>
-        <Link to='forgot-password' style={{ margin: '10px 0' }}>Quên mật khẩu?</Link>
-      </div>
       <SubmitButton
         text='Đăng nhập'
         submitting={submitting}
         className='btn btn-primary btn-block btn-flat'
       />
+      <div className='form-group label-floating' style={{textAlign: 'center'}}>
+        <Link to='forgot-password' style={{ margin: '10px 0' }}>Quên mật khẩu?</Link>
+      </div>
      </form>
   )
 }

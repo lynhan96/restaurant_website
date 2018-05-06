@@ -24,7 +24,7 @@ class InputDateTime extends React.Component {
 
     return (
       <div className='form-group label-floating' style={{ marginTop: '0' }}>
-        {label && <label>{label}</label>}
+        {label && <label className='control-label'>{label}</label>}
         <DatePicker
           className='form-control'
           name='datetimePiker'
@@ -49,6 +49,7 @@ const style = {
     width: '100%',
     height: '36px',
     fontSize: '14px',
-    paddingBottom: '14px'
+    lineHeight: '20px',
+    paddingBottom: '20px'
   }
 }

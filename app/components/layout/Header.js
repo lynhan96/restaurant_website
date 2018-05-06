@@ -1,24 +1,43 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
+
+import { changeOrderModal } from 'ducks/modal'
 
 class Header extends Component {
+  constructor(props, context) {
+    super(props, context)
+
+    this.showLoginModal = this.showLoginModal.bind(this)
+  }
+
+  showLoginModal() {
+    this.props.dispatch(changeOrderModal({ orderModal: false, loginModal: true, registerModal: false }))
+  }
+
+  showRegisterModal() {
+    this.props.dispatch(changeOrderModal({ orderModal: false, loginModal: false, registerModal: true }))
+  }
+
   render() {
     return (
       <div className='js-sticky'>
         <div className='fh5co-main-nav'>
           <div className='container-fluid'>
             <div className='fh5co-menu-1'>
-              <a href='#' data-nav-section='home'>Home</a>
-              <a href='#' data-nav-section='about'>About</a>
-              <a href='#' data-nav-section='features'>Features</a>
+              <a href='#' data-nav-section='home'>Trang chủ</a>
+              <a href='#' data-nav-section='about'>Giới thiệu</a>
+              <a href='#' data-nav-section='features'>Thức ăn nổi bật</a>
+              <a href='#' data-nav-section='menu'>Thực đơn</a>
             </div>
             <div className='fh5co-logo'>
-              <a href='#' data-nav-section='home'>foodee</a>
+              <a href='#' data-nav-section='home'>BK Cookery</a>
             </div>
             <div className='fh5co-menu-2'>
-              <a href='#' data-nav-section='menu'>Menu</a>
-              <a href='#' data-nav-section='events'>Events</a>
-              <a href='#' data-nav-section='reservation'>Reservation</a>
+              <a href='#' data-nav-section='events'>Sự kiện</a>
+              <a href='#' data-nav-section='reservation'>Đặt bàn</a>
+              <Link to='#' onClick={e => { e.preventDefault(); this.showLoginModal() }}>Đăng nhập</Link>
+              <Link to='#' onClick={e => { e.preventDefault(); this.showRegisterModal() }}>Đăng kí</Link>
             </div>
           </div>
         </div>

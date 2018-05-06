@@ -5,6 +5,7 @@ import { makeGetRequestOptions } from '../requestHeader'
 export const FETCH_FOOD_BEGIN = 'FETCH_FOOD_BEGIN'
 export const FETCH_FOOD_SUCCESS = 'FETCH_FOOD_SUCCESS'
 export const FETCH_FOOD_ERROR = 'FETCH_FOOD_ERROR'
+export const UPDATE_FILTER = 'UPDATE_FILTER'
 
 export const fetchFoodsBegin = () => ({
   type: FETCH_FOOD_BEGIN
@@ -18,6 +19,11 @@ export const fetchFoodsSuccess = foods => ({
 export const fetchFoodsError = error => ({
   type: FETCH_FOOD_ERROR,
   error: error
+})
+
+export const filterByCategoryId = categoryId => ({
+  type: UPDATE_FILTER,
+  filterByCategory: categoryId
 })
 
 export const getFoods = params => dispatch => {

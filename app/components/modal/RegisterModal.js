@@ -14,7 +14,7 @@ class RegisterModal extends Component {
   }
 
   handleClose() {
-    this.props.dispatch(changeOrderModal({ orderModal: false, loginModal: false, registerModal: false }))
+    this.props.dispatch(changeOrderModal({ orderModal: false, loginModal: false, registerModal: false, forgotPasswordModal: false }))
   }
 
   render() {
@@ -26,7 +26,7 @@ class RegisterModal extends Component {
         >
           <Modal.Body>
             <h2 style={{textAlign: 'center', margin: '0'}}>Đăng kí tài khoản mới</h2>
-            <DecoratedLoginForm />
+            <DecoratedRegisterForm />
           </Modal.Body>
           <Modal.Footer>
           </Modal.Footer>
@@ -36,7 +36,7 @@ class RegisterModal extends Component {
   }
 }
 
-const DecoratedLoginForm = reduxForm({
+const DecoratedRegisterForm = reduxForm({
   form: 'order',
   onSubmit: submitRegister
 })(RegisterForm)

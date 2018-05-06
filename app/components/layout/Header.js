@@ -12,11 +12,11 @@ class Header extends Component {
   }
 
   showLoginModal() {
-    this.props.dispatch(changeOrderModal({ orderModal: false, loginModal: true, registerModal: false }))
+    this.props.dispatch(changeOrderModal({ orderModal: false, loginModal: true, registerModal: false, forgotPasswordModal: false }))
   }
 
   showRegisterModal() {
-    this.props.dispatch(changeOrderModal({ orderModal: false, loginModal: false, registerModal: true }))
+    this.props.dispatch(changeOrderModal({ orderModal: false, loginModal: false, registerModal: true, forgotPasswordModal: false }))
   }
 
   render() {

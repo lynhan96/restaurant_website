@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap'
 import { reduxForm } from 'redux-form'
-import LoginForm from 'components/form/LoginForm'
-import { submitLogin } from 'lib/actions/submit'
 import { connect } from 'react-redux'
+
+import ForgotPasswordForm from 'components/form/ForgotPasswordForm'
+import { submitForgotPassword } from 'lib/actions/submit'
 import { changeOrderModal } from 'ducks/modal'
 
-class LoginModal extends Component {
+class ForgotPasswordModal extends Component {
   constructor(props, context) {
     super(props, context)
 
@@ -21,12 +22,12 @@ class LoginModal extends Component {
     return (
       <div>
         <Modal
-          show={this.props.modal.loginModal}
+          show={this.props.modal.forgotPasswordModal}
           onHide={this.handleClose}
         >
           <Modal.Body>
-            <h2 style={{textAlign: 'center', margin: '0'}}>Đăng nhập</h2>
-            <DecoratedLoginForm />
+            <h2 style={{textAlign: 'center', margin: '0'}}>Quên mật khẩu</h2>
+            <DecoratedForgotPasswordForm />
           </Modal.Body>
           <Modal.Footer>
           </Modal.Footer>
@@ -36,13 +37,13 @@ class LoginModal extends Component {
   }
 }
 
-const DecoratedLoginForm = reduxForm({
+const DecoratedForgotPasswordForm = reduxForm({
   form: 'order',
-  onSubmit: submitLogin
-})(LoginForm)
+  onSubmit: submitForgotPassword
+})(ForgotPasswordForm)
 
 const mapStateToProps = state => ({
   modal: state.modal
 })
 
-export default connect(mapStateToProps)(LoginModal)
+export default connect(mapStateToProps)(ForgotPasswordModal)

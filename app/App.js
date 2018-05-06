@@ -7,6 +7,7 @@ import Footer from 'components/layout/Footer'
 import Cart from 'components/layout/Cart'
 import LoginModal from 'components/modal/LoginModal'
 import RegisterModal from 'components/modal/RegisterModal'
+import ForgotPasswordModal from 'components/modal/ForgotPasswordModal'
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import 'styles/website.less'
@@ -42,6 +43,7 @@ class App extends Component {
           <ToastContainer transition={ZoomInAndOut}/>
           <LoginModal />
           <RegisterModal />
+          <ForgotPasswordModal />
         </div>
       </MuiThemeProvider>
     )

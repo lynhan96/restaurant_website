@@ -35,16 +35,16 @@ class Header extends Component {
           <div className='container-fluid'>
             <div className='fh5co-menu-1'>
               <a href='#' data-nav-section='home'>Trang chủ</a>
-              <a href='#' data-nav-section='about'>Giới thiệu</a>
               <a href='#' data-nav-section='features'>Thức ăn nổi bật</a>
               <a href='#' data-nav-section='menu'>Thực đơn</a>
+              <a href='#' data-nav-section='reservation'>Đặt bàn</a>
             </div>
             <div className='fh5co-logo'>
               <a href='#' data-nav-section='home'>BK Cookery</a>
             </div>
             <div className='fh5co-menu-2'>
+              <a href='#' data-nav-section='about'>Giới thiệu</a>
               <a href='#' data-nav-section='events'>Sự kiện</a>
-              <a href='#' data-nav-section='reservation'>Đặt bàn</a>
               { !signedIn ? <Link to='#' onClick={e => { e.preventDefault(); this.showLoginModal() }}>Đăng nhập</Link> : ''}
               { !signedIn ? <Link to='#' onClick={e => { e.preventDefault(); this.showRegisterModal() }}>Đăng kí</Link> : ''}
               { signedIn ? <Link to='#'>Trang cá nhân</Link> : ''}

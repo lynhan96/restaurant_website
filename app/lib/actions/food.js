@@ -27,7 +27,7 @@ export const filterByCategoryId = categoryId => ({
 })
 
 export const getFoods = params => dispatch => {
-  request(makeGetRequestOptions('?vendorId=1&limit=999999', 'foods')).then(body => {
+  request(makeGetRequestOptions('?vendorId=1&limit=100', 'foods')).then(body => {
     if (body.code === 401 || body.code === 400 || body.code === 414) {
       showNotification('topCenter', 'error', 'Quá trình xác thực xảy ra lỗi!')
     } else {

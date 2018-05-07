@@ -8,52 +8,54 @@ class Reservation extends Component {
         <div className='container'>
           <div className='row text-center fh5co-heading row-padded'>
             <div className='col-md-8 col-md-offset-2'>
-              <h2 className='heading to-animate'>Reserve a Table</h2>
-              <p className='sub-heading to-animate'>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <h2 className='heading to-animate'>Đặt chỗ ngay</h2>
+              <p className='sub-heading to-animate'>Đặt chỗ ngay để tận hưởng dịch vụ chất lượng quốc tế</p>
             </div>
           </div>
           <div className='row'>
             <div className='col-md-6 to-animate-2'>
-              <h3>Contact Info</h3>
+              <h3>Thông tin liên hệ</h3>
               <ul className='fh5co-contact-info'>
                 <li className='fh5co-contact-address '>
                   <i className='icon-home'></i>
-                  5555 Love Paradise 56 New Clity 5655, <br/>Excel Tower United Kingdom
+                  123 Nguyễn Huệ, Đa Kao, Quận 1, <br/>Thành phố Hồ Chí Minh
                 </li>
-                <li><i className='icon-phone'></i> (123) 465-6789</li>
-                <li><i className='icon-envelope'></i>info@freehtml5.co</li>
-                <li><i className='icon-globe'></i> <a href='http://freehtml5.co/' target='_blank'>freehtml5.co</a></li>
+                <li><i className='icon-phone'></i> (54) 465-6789</li>
+                <li><i className='icon-envelope'></i>info@bkcookery.com</li>
+                <li><i className='icon-globe'></i> <a href='#'>bkcookery.com</a></li>
               </ul>
             </div>
             <div className='col-md-6 to-animate-2'>
-              <h3>Reservation Form</h3>
+              <h3>Form đặt chỗ</h3>
               <div className='form-group '>
-                <label htmlFor='name' className='sr-only'>Name</label>
-                <input id='name' className='form-control' placeholder='Name' type='text'/>
+                <label htmlFor='name' className='sr-only'>Tên</label>
+                <input id='name' className='form-control' placeholder='Tên' type='text'/>
               </div>
               <div className='form-group '>
                 <label htmlFor='email' className='sr-only'>Email</label>
                 <input id='email' className='form-control' placeholder='Email' type='email'/>
               </div>
               <div className='form-group'>
-                <label htmlFor='occation' className='sr-only'>Occation</label>
+                <label htmlFor='occation' className='sr-only'>Nhân dịp</label>
                 <select className='form-control' id='occation'>
-                  <option>Select an Occation</option>
-                  <option>Wedding Ceremony</option>
-                  <option>Birthday</option>
-                  <option>Others</option>
+                  <option>Chọn</option>
+                  <option>Kỷ niệm ngày cưới</option>
+                  <option>Sinh nhật</option>
+                  <option>Sự kiện</option>
+                  <option>Khác</option>
                 </select>
               </div>
               <div className='form-group '>
-                <label htmlFor='date' className='sr-only'>Date</label>
-                <input id='date' className='form-control date-time' placeholder='Date &amp; Time' type='text'/>
+                <label htmlFor='date' className='sr-only'>Ngày giờ</label>
+                <input id='date' className='form-control date-time' placeholder='Ngày giờ &amp; Time' type='text'/>
               </div>
               <div className='form-group '>
-                <label htmlFor='message' className='sr-only'>Message</label>
-                <textarea name='' id='message' cols='30' rows='5' className='form-control' placeholder='Message'></textarea>
+                <label htmlFor='message' className='sr-only'>Ghi chú</label>
+                <textarea name='' id='message' cols='30' rows='5' className='form-control'
+                placeholder='Ghi chú'></textarea>
               </div>
               <div className='form-group '>
-                <input className='btn btn-primary' value='Send Message' type='submit'/>
+                <input className='btn btn-primary' value='Đặt chỗ ngay' type='submit'/>
               </div>
             </div>
           </div>

@@ -10,7 +10,7 @@ class Banner extends Component {
           <div className='fh5co-text'>
             <div className='container'>
               <div className='row'>
-                <h1 className='to-animate'>Cookery</h1>
+                <h1 className='to-animate' style={{fontSize: '8em'}}>BK Cookery</h1>
               </div>
             </div>
           </div>

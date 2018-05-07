@@ -9,8 +9,8 @@ class Event extends Component {
         <div className='container'>
           <div className='row text-center fh5co-heading row-padded'>
             <div className='col-md-8 col-md-offset-2 to-animate'>
-              <h2 className='heading'>Upcoming Events</h2>
-              <p className='sub-heading'>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <h2 className='heading'>Sự kiện</h2>
+              <p className='sub-heading'>Các khuyến mãi hấp dẫn cũng như sự kiện được liên tục tổ chức</p>
             </div>
           </div>
           <div className='row'>

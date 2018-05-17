@@ -46,6 +46,10 @@ class Reservation extends Component {
                 </select>
               </div>
               <div className='form-group '>
+                <label htmlFor='number-people' className='sr-only'>Số người</label>
+                <input id='number-people' className='form-control' placeholder='Số người' type='number'/>
+              </div>
+              <div className='form-group '>
                 <label htmlFor='date' className='sr-only'>Ngày giờ</label>
                 <input id='date' className='form-control date-time' placeholder='Ngày giờ &amp; Time' type='text'/>
               </div>

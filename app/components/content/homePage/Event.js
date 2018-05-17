@@ -16,26 +16,28 @@ class Event extends Component {
           <div className='row'>
             <div className='col-md-4'>
               <div className='fh5co-event to-animate-2'>
-                <h3>Kitchen Workshops</h3>
-                <span className='fh5co-event-meta'>March 19th, 2016</span>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                <p><a href='#' className='btn btn-primary btn-outline'>Read More</a></p>
+                <h3>Ngày hè náo nhiệt</h3>
+                <span className='fh5co-event-meta'>11/06/2018 - 17/06/2018</span>
+                <p>Tận hưởng hải sản tươi sống bất tận. Giảm ngay 10% cho thực đơn Hải sản.
+                  <br />
+                  Ưu đãi dành riêng cho những ngày hè nóng bức oi ả.</p>
+                <p><a href='#' className='btn btn-primary btn-outline'>Chi tiết</a></p>
               </div>
             </div>
             <div className='col-md-4'>
               <div className='fh5co-event to-animate-2'>
-                <h3>Music Concerts</h3>
-                <span className='fh5co-event-meta'>March 19th, 2016</span>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                <p><a href='#' className='btn btn-primary btn-outline'>Read More</a></p>
+                <h3>Ưu đãi dành cho chủ thẻ MasterCard</h3>
+                <span className='fh5co-event-meta'>01/06/2018 - 31/12/2018</span>
+                <p>Đánh bay mọi lo âu với thẻ MasterCard trong tay. Chiết khấu 5% đối với khách hàng thanh toán bằng thẻ MasterCard</p>
+                <p><a href='#' className='btn btn-primary btn-outline'>Chi tiết</a></p>
               </div>
             </div>
             <div className='col-md-4'>
               <div className='fh5co-event to-animate-2'>
-                <h3>Free to Eat Party</h3>
-                <span className='fh5co-event-meta'>March 19th, 2016</span>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                <p><a href='#' className='btn btn-primary btn-outline'>Read More</a></p>
+                <h3>Nhậu thả ga, về nhà Grab lo!</h3>
+                <span className='fh5co-event-meta'>01/06/2018 - 01/07/2018</span>
+                <p>Tặng mã giảm giá 50,000 VND cho hóa đơn từ 500,000 VND trở lên. Yên tâm về nhà trong mọi cuộc vui.</p>
+                <p><a href='#' className='btn btn-primary btn-outline'>Chi tiết</a></p>
               </div>
             </div>
           </div>

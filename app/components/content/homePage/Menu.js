@@ -79,7 +79,7 @@ class Menu extends ReactQueryParams {
                       return (
                         <li className='item' key={foodIndex}>
                           <a href='#'>
-                            <img src={image} className='img-responsive' alt='Food' />
+                            <img src={image[0]} className='img-responsive' alt='Food' />
                             <div className='menu-desc text-center'>
                               <span>
                                 <h3>{food.name}</h3>

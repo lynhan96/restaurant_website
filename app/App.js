@@ -4,7 +4,6 @@ import Transition from 'react-transition-group/Transition'
 
 import Header from 'components/layout/Header'
 import Footer from 'components/layout/Footer'
-import Cart from 'components/layout/Cart'
 import LoginModal from 'components/modal/LoginModal'
 import RegisterModal from 'components/modal/RegisterModal'
 import ForgotPasswordModal from 'components/modal/ForgotPasswordModal'
@@ -39,7 +38,6 @@ class App extends Component {
           <Header />
           {children}
           <Footer />
-          <Cart />
           <LoginModal />
           <RegisterModal />
           <ForgotPasswordModal />

@@ -5,6 +5,7 @@ import ordering from 'ducks/ordering'
 import selectedFood from 'ducks/selectedFood'
 import modal from 'ducks/modal'
 import user from 'ducks/user'
+import aboutUs from 'ducks/aboutUs'
 
 export default {
   hydration,
@@ -13,5 +14,6 @@ export default {
   ordering,
   modal,
   selectedFood,
-  user
+  user,
+  aboutUs
 }

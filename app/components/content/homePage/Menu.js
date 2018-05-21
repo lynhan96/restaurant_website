@@ -53,7 +53,7 @@ class Menu extends ReactQueryParams {
                           className={foodState.filterByCategory === 0 ? 'filter active' : 'filter'}
                           data-filter='all'
                           onClick={e => { e.preventDefault(); this.filterFood(0) }}
-                        >All</li>
+                        >Tất cả</li>
                         {foodCategories.map((category, index) => {
                           return (
                             <li

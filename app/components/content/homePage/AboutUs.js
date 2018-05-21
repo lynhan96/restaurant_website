@@ -31,26 +31,20 @@ class AboutUs extends ReactQueryParams {
                 <ul className="slides">
                   <li>
                     <blockquote>
-                      <p>&ldquo;Cooking is an art, but all art requires knowing something about the techniques and materials&rdquo;</p>
-                      <p className="quote-author">&mdash; Nathan Myhrvold</p>
+                      <p>&ldquo;Chất lượng phục vụ tuyệt vời&rdquo;</p>
+                      <p className="quote-author">&mdash; Hà Lê</p>
                     </blockquote>
                   </li>
                   <li>
                     <blockquote>
-                      <p>&ldquo;Give a man food, and he can eat for a day. Give a man a job, and he can only eat for 30 minutes on break.&rdquo;</p>
-                      <p className="quote-author">&mdash; Lev L. Spiro</p>
+                      <p>&ldquo;Khó có thể bỏ qua Lẫu chua cay khi đến đây&rdquo;</p>
+                      <p className="quote-author">&mdash; Thành Nguyễn</p>
                     </blockquote>
                   </li>
                   <li>
                     <blockquote>
-                      <p>&ldquo;Find something you’re passionate about and keep tremendously interested in it.&rdquo;</p>
-                      <p className="quote-author">&mdash; Julia Child</p>
-                    </blockquote>
-                  </li>
-                  <li>
-                    <blockquote>
-                      <p>&ldquo;Never work before breakfast; if you have to work before breakfast, eat your breakfast first.&rdquo;</p>
-                      <p className="quote-author">&mdash; Josh Billings</p>
+                      <p>&ldquo;Không gian quá tuyệt cho một bữa tối lãng mạn&rdquo;</p>
+                      <p className="quote-author">&mdash; Long Nhật</p>
                     </blockquote>
                   </li>
                 </ul>

@@ -11,8 +11,8 @@ class Reservation extends Component {
         <div className='container'>
           <div className='row text-center fh5co-heading row-padded'>
             <div className='col-md-8 col-md-offset-2'>
-              <h2 className='heading to-animate'>Đặt bàn</h2>
-              <p className='sub-heading to-animate'>Khi đặt bàn sẽ có nhân viên hỗ trợ khách hàng gọi điện cho quý khách</p>
+              <h2 className='heading to-animate'>Đặt chỗ ngay</h2>
+              <p className='sub-heading to-animate'>Đặt chỗ ngay để tận hưởng dịch vụ chất lượng quốc tế</p>
             </div>
           </div>
           <div className='row'>
@@ -21,10 +21,11 @@ class Reservation extends Component {
               <ul className='fh5co-contact-info'>
                 <li className='fh5co-contact-address '>
                   <i className='icon-home'></i>
-                  55 Nguyễn thị minh khai, Quận 1 <br/>Nhà hàng BK Cookery
+                  123 Nguyễn Huệ, Đa Kao, Quận 1, <br/>Thành phố Hồ Chí Minh
                 </li>
-                <li><i className='icon-phone'></i> (123) 465-6789</li>
-                <li><i className='icon-envelope'></i>cookery@gmail.com</li>
+                <li><i className='icon-phone'></i> (54) 465-6789</li>
+                <li><i className='icon-envelope'></i>info@bkcookery.com</li>
+                <li><i className='icon-globe'></i> <a href='#'>bkcookery.com</a></li>
               </ul>
             </div>
             <div className='col-md-6 to-animate-2'>

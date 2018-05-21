@@ -1,21 +1,20 @@
 import React from 'react'
-import moment from 'moment'
-import DatePicker from 'material-ui/DatePicker'
+import TimePicker from 'material-ui/TimePicker'
 // We receive props from ReduxForm's Field
 // and turn them into props for Bootstrap forms
-class InputDateTime extends React.Component {
+class InputTime extends React.Component {
   constructor (props) {
     super(props)
     this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange (nilValue, date) {
-    this.props.input.onChange(moment.utc(date))
+    this.props.input.onChange(date)
   }
 
   componentWillMount () {
     const defaultValue = new Date()
-    this.props.input.onChange(moment.utc(new Date(defaultValue)))
+    this.props.input.onChange(new Date(defaultValue))
   }
 
   render() {
@@ -29,32 +28,32 @@ class InputDateTime extends React.Component {
 
     return (
       <div className='form-group label-floating' style={{ marginTop: '0' }}>
-        {label && <label className='control-label'>{label}</label>}
-        <DatePicker
+        {label && <label>{label}</label>}
+        <TimePicker
           className='form-control'
-          name='datetimePiker'
-          openToYearSelection={true}
-          defaultDate={new Date(defaultTime)}
+          name='timePicker'
+          hintText="10 minutes step"
+          minutesStep={10}
+          defaultTime={new Date(defaultTime)}
           onChange={this.handleChange}
-          mode='landscape'
           cancelLabel='Hủy'
           okLabel='Chọn'
+          format='24hr'
           textFieldStyle={style.dateTimeInput}
-          formatDate={(date) => moment.utc(date).add(7, 'hours').format('YYYY-MM-DD')}
         />
       </div>
     )
   }
 }
 
-export default InputDateTime
+export default InputTime
 
 const style = {
   dateTimeInput: {
     width: '100%',
-    height: '36px',
+    height: '43px',
+    lineHeight: '19px',
     fontSize: '14px',
-    lineHeight: '20px',
-    paddingBottom: '20px'
+    paddingBottom: '14px !importtant'
   }
 }

@@ -1,4 +1,4 @@
-import { SubmissionError } from 'redux-form'
+import { SubmissionError, reset } from 'redux-form'
 import request from 'request-promise'
 import R from 'ramda'
 import * as firebase from 'firebase'
@@ -15,6 +15,49 @@ import { changeModalState } from 'ducks/modal'
 
 // Redux-form requires a promise for async submission
 // so we return a promise
+export const submitBookingTable =
+  (values, dispatch, props) => {
+    const url = 'bookingTable'
+    const time = moment(values.date).add(7, 'hours').format('YYYY-MM-DD') + ' ' + moment(values.time).format('H:mm:ss')
+
+    let params = values
+
+    params.time = moment(time)
+    params.status = 'Đang chờ xác nhận'
+
+    return request(makePostRequestOptions(params, url)).then(body => {
+      showNotification('topRight', 'success', 'Đặt lịch thành công! Nhân viên của chúng tôi sẽ liên hệ với quý khách')
+      dispatch(reset('bookingTable'))
+      document.getElementById('bookingForm').reset()
+
+      const notificationId = firebase.database().ref('1/notifications/').push().key
+
+      firebase.database().ref('1/notifications/').child(notificationId).set({
+        id: notificationId,
+        message: 'Có lịch đặt bàn mới. Vui lòng kiểm tra!',
+        type: 'cashier',
+        orderingId: '',
+        tableId: '',
+        requiredDeleteFood: 'no',
+        foodIndex: '',
+        read: 'no'
+      })
+
+      Navigator.push('home')
+
+      return null
+    })
+    .catch(function (err) {
+      if (err.message) {
+        showNotification('topRight', 'error', err.message)
+        throw new SubmissionError({ _error: err.message })
+      } else {
+        showNotification('topRight', 'error', JSON.stringify(err))
+        throw new SubmissionError({ _error: JSON.stringify(err) })
+      }
+    })
+  }
+
 export const submitLogin =
   (values, dispatch, props) => {
     const { email, password } = values

@@ -12,13 +12,13 @@ class InputText extends React.Component {
   }
 
   render() {
-    const { required, input, label, type = 'text', defaultValue, style } = this.props
+    const { required, input, label, type = 'text', defaultValue, style, placeHolder } = this.props
     const { onChange } = input
 
     return (
       <div className='form-group label-floating' style={style}>
         {label && <label className='control-label'>{label}</label>}
-        <input type={type} className='form-control' required={required} defaultValue={defaultValue} onChange={onChange}/>
+        <input type={type} className='form-control' required={required} defaultValue={defaultValue} onChange={onChange} placeholder={placeHolder}/>
       </div>
     )
   }

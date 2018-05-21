@@ -19,6 +19,8 @@ export const makeHeader = _ => {
     headers['Uid'] = headerInfo.uid
     headers['Token'] = headerInfo.token
     headers['Vid'] = headerInfo.vid
+  } else {
+    headers['Vid'] = 1
   }
 
   headers['Authorization'] = md5(md5(headers['Token'] + headers['Uid'] + headers['Date-Time']))

@@ -7,7 +7,13 @@ class SelectField extends React.Component {
   }
 
   componentWillMount () {
-    this.props.input.onChange(this.props.selectFieldData[this.props.fieldName][0])
+    const { selectFieldData, fieldName, defaultValue } = this.props
+
+    if (defaultValue) {
+      this.props.input.onChange(defaultValue)
+    } else {
+      this.props.input.onChange(selectFieldData[fieldName][0])
+    }
   }
 
   handleChange (event) {

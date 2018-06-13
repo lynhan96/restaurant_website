@@ -26,7 +26,7 @@ class Menu extends ReactQueryParams {
 
   showFoodDetailModal(foodIndex) {
     this.setState({ foodIndex: foodIndex })
-    this.props.dispatch(changeModalState({  enventModal: false, foodModal: true, orderModal: false, loginModal: false, registerModal: false, forgotPasswordModal: false }))
+    this.props.dispatch(changeModalState({ enventModal: false, foodModal: true, orderModal: false, loginModal: false, registerModal: false, forgotPasswordModal: false }))
   }
 
   componentDidMount() {

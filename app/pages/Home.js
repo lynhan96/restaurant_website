@@ -1,5 +1,4 @@
-import React from 'react'
-import ReactQueryParams from 'react-query-params'
+import React, {Component} from 'react'
 
 import AboutUs from 'components/content/homePage/AboutUs'
 import FeaturedDishes from 'components/content/homePage/FeaturedDishes'
@@ -8,7 +7,7 @@ import Menu from 'components/content/homePage/Menu'
 import Event from 'components/content/homePage/Event'
 import Reservation from 'components/content/homePage/Reservation'
 
-class Home extends ReactQueryParams {
+class Home extends Component {
   render() {
     return (
       <div>

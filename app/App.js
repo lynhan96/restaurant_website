@@ -26,9 +26,6 @@ const ZoomInAndOut = ({ children, position, ...props }) => (
 )
 
 class App extends Component {
-  componentWillUpdate() {
-  }
-
   render() {
     const { children } = this.props
 

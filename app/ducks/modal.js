@@ -8,7 +8,8 @@ export const changeModalState = modal => dispatch => {
     orderModal: modal.orderModal,
     loginModal: modal.loginModal,
     registerModal: modal.registerModal,
-    forgotPasswordModal: modal.forgotPasswordModal
+    forgotPasswordModal: modal.forgotPasswordModal,
+    foodModal: modal.foodModal
   })
 }
 
@@ -16,7 +17,8 @@ const initialState = {
   orderModal: false,
   loginModal: false,
   resgisterModal: false,
-  forgotPasswordModal: false
+  forgotPasswordModal: false,
+  foodModal: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -27,7 +29,8 @@ const reducer = (state = initialState, action) => {
         orderModal: action.orderModal,
         loginModal: action.loginModal,
         registerModal: action.registerModal,
-        forgotPasswordModal: action.forgotPasswordModal
+        forgotPasswordModal: action.forgotPasswordModal,
+        foodModal: action.foodModal
       }
 
     case USER_SIGNED_OUT:

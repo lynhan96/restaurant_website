@@ -14,7 +14,7 @@ class LoginModal extends Component {
   }
 
   handleClose() {
-    this.props.dispatch(changeModalState({ orderModal: false, loginModal: false, registerModal: false, forgotPasswordModal: false }))
+    this.props.dispatch(changeModalState({ foodModal: false, orderModal: false, loginModal: false, registerModal: false, forgotPasswordModal: false }))
   }
 
   render() {
@@ -28,8 +28,6 @@ class LoginModal extends Component {
             <h2 style={{textAlign: 'center', margin: '0'}}>Đăng nhập</h2>
             <DecoratedLoginForm />
           </Modal.Body>
-          <Modal.Footer>
-          </Modal.Footer>
         </Modal>
       </div>
     )

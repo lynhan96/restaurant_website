@@ -28,7 +28,7 @@ class Event extends Component {
                     <h3>{item.name}</h3>
                     <span className='fh5co-event-meta'></span>
                     <p className="post__content to-animate" dangerouslySetInnerHTML={{__html: item.description}}></p>
-                    <p><a href='#' className='btn btn-primary btn-outline'>Read More</a></p>
+                    <p><a href='#' className='btn btn-primary btn-outline'>Xem chi tiết</a></p>
                   </div>
                 </div>
               )

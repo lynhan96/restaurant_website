@@ -1,23 +1,32 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 import R from 'ramda'
 import ReactQueryParams from 'react-query-params'
 import { getFoods, filterByCategoryId } from 'lib/actions/food'
 import { getCategories } from 'lib/actions/foodCategory'
 import { priceToString } from 'lib/objects'
+import { changeModalState } from 'ducks/modal'
+import FoodDetailModal from 'components/modal/FoodDetailModal'
 
 class Menu extends ReactQueryParams {
   constructor(props, context) {
     super(props, context)
 
     this.filterFood = this.filterFood.bind(this)
+
     this.state = {
-      foods: []
+      foodIndex: 0
     }
   }
 
   filterFood(categoryId) {
     this.props.dispatch(filterByCategoryId(categoryId))
+  }
+
+  showFoodDetailModal(foodIndex) {
+    this.setState({ foodIndex: foodIndex })
+    this.props.dispatch(changeModalState({ foodModal: true, orderModal: false, loginModal: false, registerModal: false, forgotPasswordModal: false }))
   }
 
   componentDidMount() {
@@ -78,15 +87,15 @@ class Menu extends ReactQueryParams {
                       const image = R.values(food.imageUrl)
                       return (
                         <li className='item' key={foodIndex}>
-                          <a href='#'>
+                          <Link to='#' onClick={e => { e.preventDefault(); this.showFoodDetailModal(foodIndex) }}>
                             <img src={image[0]} className='img-responsive' alt='Food' />
                             <div className='menu-desc text-center'>
                               <span>
                                 <h3>{food.name}</h3>
-                                {food.description}
+                                {food.sortDescription}
                             </span>
                             </div>
-                          </a>
+                          </Link>
                           <h3 className='food-name'>{food.name}</h3>
                           <h2 style={{ color: 'white' }}>{priceToString(food.currentPrice)}</h2>
                         </li>
@@ -96,6 +105,10 @@ class Menu extends ReactQueryParams {
                 </div>
               </div>
             </div>
+
+            <FoodDetailModal
+              foodIndex={this.state.foodIndex}
+            />
           </div>
         </div>
       </div>

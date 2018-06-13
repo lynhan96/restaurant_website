@@ -9,6 +9,7 @@ export const changeModalState = modal => dispatch => {
     loginModal: modal.loginModal,
     registerModal: modal.registerModal,
     forgotPasswordModal: modal.forgotPasswordModal,
+    eventModal: modal.eventModal,
     foodModal: modal.foodModal
   })
 }
@@ -18,7 +19,8 @@ const initialState = {
   loginModal: false,
   resgisterModal: false,
   forgotPasswordModal: false,
-  foodModal: false
+  foodModal: false,
+  eventModal: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -30,6 +32,7 @@ const reducer = (state = initialState, action) => {
         loginModal: action.loginModal,
         registerModal: action.registerModal,
         forgotPasswordModal: action.forgotPasswordModal,
+        eventModal: action.eventModal,
         foodModal: action.foodModal
       }
 

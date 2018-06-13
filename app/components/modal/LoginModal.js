@@ -14,7 +14,7 @@ class LoginModal extends Component {
   }
 
   handleClose() {
-    this.props.dispatch(changeModalState({ foodModal: false, orderModal: false, loginModal: false, registerModal: false, forgotPasswordModal: false }))
+    this.props.dispatch(changeModalState({ eventModal: false, foodModal: false, orderModal: false, loginModal: false, registerModal: false, forgotPasswordModal: false }))
   }
 
   render() {

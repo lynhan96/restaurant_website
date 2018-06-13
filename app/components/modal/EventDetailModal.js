@@ -3,10 +3,9 @@ import R from 'ramda'
 import { Modal } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { changeModalState } from 'ducks/modal'
-import { priceToString } from 'lib/objects'
 import Slider from 'react-slick'
 
-class FoodDetailModal extends Component {
+class EventDetailModal extends Component {
   constructor(props, context) {
     super(props, context)
 
@@ -18,8 +17,8 @@ class FoodDetailModal extends Component {
   }
 
   render() {
-    const { foods, foodIndex } = this.props
-    const foodDetail = foods[foodIndex]
+    const { events, eventIndex } = this.props
+    const event = events[eventIndex]
     let images = []
     const settings = {
       dots: true,
@@ -30,11 +29,11 @@ class FoodDetailModal extends Component {
       slidesToScroll: 1
     }
 
-    if (foodDetail && foodDetail.imageUrl) {
-      images = R.values(foodDetail.imageUrl)
+    if (event && event.imageUrl) {
+      images = R.values(event.imageUrl)
     }
 
-    if (!foodDetail) {
+    if (!event) {
       return (
         <div/>
       )
@@ -43,7 +42,7 @@ class FoodDetailModal extends Component {
     return (
       <div>
         <Modal
-          show={this.props.modal.foodModal}
+          show={this.props.modal.eventModal}
           onHide={this.handleClose}
           bsSize='large'
         >
@@ -58,14 +57,8 @@ class FoodDetailModal extends Component {
               })}
             </Slider>
             <div style={{ marginTop: '20px' }}>
-              <p style={{margin: '0'}}>{'Gía mới: ' + priceToString(foodDetail.currentPrice)}</p>
-            </div>
-            <div style={{ marginTop: '20px' }}>
-              <p style={{margin: '0'}}>{'Gía cũ: ' + priceToString(foodDetail.oldPrice)}</p>
-            </div>
-            <div style={{ marginTop: '20px' }}>
-              <p style={{margin: '0'}}>Mô tả món ăn: </p>
-              <div dangerouslySetInnerHTML={{ __html: foodDetail.description }} style={{ height: 'auto' }}/>
+              <p style={{margin: '0'}}>Mô tả sự kiện: </p>
+              <div dangerouslySetInnerHTML={{ __html: event.description }} style={{ height: 'auto' }}/>
             </div>
           </Modal.Body>
         </Modal>
@@ -76,7 +69,7 @@ class FoodDetailModal extends Component {
 
 const mapStateToProps = state => ({
   modal: state.modal,
-  foods: state.food.items
+  events: state.event.items
 })
 
-export default connect(mapStateToProps)(FoodDetailModal)
+export default connect(mapStateToProps)(EventDetailModal)

@@ -1,10 +1,26 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { fetchEvent } from 'lib/actions/event'
+import { changeModalState } from 'ducks/modal'
+import EventDetailModal from 'components/modal/EventDetailModal'
+import { Link } from 'react-router'
 
 class Event extends Component {
+  constructor(props, context) {
+    super(props, context)
+
+    this.state = {
+      eventIndex: 0
+    }
+  }
+
   componentDidMount() {
     this.props.dispatch(fetchEvent())
+  }
+
+  showEnvetModal(eventIndex) {
+    this.setState({ eventIndex: eventIndex })
+    this.props.dispatch(changeModalState({ eventModal: true, foodModal: false, orderModal: false, loginModal: false, registerModal: false, forgotPasswordModal: false }))
   }
 
   render() {
@@ -27,13 +43,20 @@ class Event extends Component {
                   <div className='fh5co-event to-animate-2'>
                     <h3>{item.name}</h3>
                     <span className='fh5co-event-meta'></span>
-                    <p className="post__content to-animate" dangerouslySetInnerHTML={{__html: item.description}}></p>
-                    <p><a href='#' className='btn btn-primary btn-outline'>Xem chi tiết</a></p>
+                    <p className='post__content to-animate'>{item.sortDescription}</p>
+                    <p>
+                      <Link to='#' className='btn btn-primary btn-outline' onClick={e => { e.preventDefault(); this.showEnvetModal(index) }}>
+                        Xem chi tiết
+                      </Link>
+                    </p>
                   </div>
                 </div>
               )
             })}
           </div>
+          <EventDetailModal
+            eventIndex={this.state.eventIndex}
+          />
         </div>
       </div>
     )
